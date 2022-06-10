@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/}"><span th:text="${appName}"/></a>
+            </div>
+            <p class="navbar-text navbar-right">
+                <span sec:authentication="name">Username</span> &nbsp; &nbsp; &nbsp;
+                <a th:href="@{/logout}">Logout</a>&nbsp; &nbsp; &nbsp;
+            </p>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Home </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2"> Use cases </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tangoe One - Telecom Deep-Linking</td>
+                            <td>
+                                <a class="btn btn-success" href="#" th:href="@{/destinations}"> Check </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

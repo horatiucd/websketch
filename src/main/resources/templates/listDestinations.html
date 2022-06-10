@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Destinations</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1> Destinations </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <a class="btn btn-info" href="#" th:href="@{/}"> Back Home </a>
+        <a class="btn btn-success" href="#" th:href="@{/destinations/create}"> Create </a>
+        <table class="table">
+          <thead>
+            <tr>
+              <th> Name </th>
+              <th> URL </th>
+              <th> Actions </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:if="${destinations.empty}">
+              <td colspan="3"> No Destinations Available </td>
+            </tr>
+            <tr th:each="destination : ${destinations}">
+              <td><span th:text="${destination.name}"> Name </span></td>
+              <td><span th:text="${#strings.abbreviate(destination.url, 60)}" th:title="${destination.url}"> URL </span></td>
+              <td>
+                <a class="btn btn-primary" href="#" th:href="@{/destinations/update/{id}(id = ${destination.id})}"> Update</a>
+                <a class="btn btn-primary" href="#" th:href="@{/destinations/delete/{id}(id = ${destination.id})}"> Delete</a>
+                <a class="btn btn-danger" href="#" th:href="@{/deep-link/get/destinations/{id}(id = ${destination.id})}" th:target="_blank"> GET</a>
+                <a class="btn btn-danger" href="#" th:href="@{/deep-link/post/destinations/{id}(id = ${destination.id})}" th:target="_blank"> POST</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

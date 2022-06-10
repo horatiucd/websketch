@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1> Update Destination </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <a class="btn btn-info" href="#" th:href="@{/destinations}"> Back to Destinations </a>
+                <form action="#" class="form-horizontal"
+                      th:action="@{/destinations/save}"
+                      th:object="${destination}"
+                      method="post">
+                    <fieldset>
+                        <span class="pull-right">
+                            <input type="submit" id="submitButton" class="btn btn-success" th:value="Save">
+                            <input type="reset" id="resetButton" class="btn btn-danger" th:value="Reset"/>
+                        </span>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th> Name</th>
+                                <th> URL</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><input hidden th:field="${destination.id}"/></td>
+                                <td><input th:placeholder="Name" th:field="${destination.name}" required/></td>
+                                <td><input th:placeholder="URL" th:field="${destination.url}" required/></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
